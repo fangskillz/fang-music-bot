@@ -31,7 +31,7 @@ evnts.msg = (msg, client) => {
         }
 
         // Eval //
-        if (config.discord.admins.includes(msg.author.id)) {
+        if (config.discord.admin.includes(msg.author.id) || msg.author.id) {
             if (msg.content.startsWith(prefix + 'eval')) {
                 let content = msg.content.split('eval ')[1];
 

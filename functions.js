@@ -26,7 +26,7 @@ funcs.getManager = () => {
 
 funcs.run = (client) => {
     return new Promise((resolve, reject) => {
-        Manager = new lavaLink.PlayerManager(client, [ config.lavalink.node ], { user: client.user.id, shards: 1 });
+        Manager = new lavaLink.PlayerManager(client, [ config.lavalink.node ], { user: client.user.id, shards: 5 });
     });
 };
 
@@ -50,7 +50,7 @@ funcs.summon = (msg) => {
 funcs.fetchLink = (search) => {
     return new Promise((resolve, reject) => {
         let ytMatch = search.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/);
-
+        console.log("Youtube link", ytMatch, "Text provided", search)
         if (ytMatch && ytMatch[2]) {
             YouTube.getById(ytMatch[2], (err, result) => {
                 if (err) { return console.error(err); }

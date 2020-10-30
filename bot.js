@@ -11,9 +11,10 @@ const prefix    = config.discord.prefix;
 client.on('ready', () => {
     client.generateInvite(8).then(invite => {
         functions.run(client);
-        console.log(`${chalk.green(`[L]`)} | ${chalk.green(`Illusion Music Bot Ready! - Logged in as ${client.user.username} - Current prefix is: ${config.discord.prefix}\nInvite link: ${invite}\nCreated by Tetrabyte#4866 (@TheTetrabyte)`)}`);
+        console.log(`${chalk.green(`[L]`)} | ${chalk.green(`Illusion Music Bot Ready! - Logged in as ${client.user.username} - Current prefix is: ${config.discord.prefix}\nInvite link: ${invite}\nCreated by Tetrabyte#4866 (@juan_garcia3708)`)}`);
         client.user.setPresence({ status: `online`, activity: { name: `Illusion Music Bot v1.0` } });
     });
+    
 });
 
 // Error Event //
