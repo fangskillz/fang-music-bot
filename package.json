@@ -1,5 +1,5 @@
 {
-  "name": "illusion-music-bot",
+  "name": "fang-music-bot",
   "version": "1.0.0",
   "description": "Discord music bot coded in Discord.js",
   "main": "bot.js",

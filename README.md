@@ -1,6 +1,6 @@
-# Illusion Music Bot
+# Fang Music Bot
 
-## Created by Tetrabyte#0001
+## Created by Fangskillz#0001
 
 ---
 
