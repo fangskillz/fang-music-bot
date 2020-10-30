@@ -3,10 +3,10 @@ const cfg = [];
 
 //Discord config
 cfg.discord = {
-    token: 'NzcxNTcxNDk4MDQxMjEyOTgw.X5uD9A.Wfugxuxnvu6iTvuPW-SN5JYxIbg',
+    token: 'Bot-Token',
     prefix: '!',
     admin: [
-        '771571498041212980'
+        'Admin-Id'
     ]
 };
 
@@ -16,19 +16,19 @@ cfg.options = {
 };
 
 cfg.api = {
-    youtube: 'AIzaSyBarRwPpT6aXyes_d4O2BdZ2tvai0Rt6sI'
+    youtube: 'Youtube API Key'
 }
 
 cfg.lavalink = {
     node: {
         host: '127.0.0.1',
         port: 6060,
-        password: 'Vanossgames210'
+        password: 'AnyCustomPassword'
     },
     rest: {
         host: '127.0.0.1',
         port: 6060,
-        password: 'Vanossgames210'
+        password: 'AnyCustomPassword'
     }
 };
 
