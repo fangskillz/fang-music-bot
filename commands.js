@@ -22,7 +22,7 @@ cmds.play = {
     trigger: ({ client, msg, params, raw, clean }) => {
         functions.summon(msg).then(Player => {
             if (!msg.member.voice.channel) return msg.channel.send({ embed: { title: `Fang Music`, color: 16711680, description: `You must be in a voice channel to use the play command`, footer: { text: `Fang Music`, icon_url: client.user.avatarURL() }, timestamp: new Date() } });
-
+            console.log("Raw data text", raw)
             functions.fetchLink(raw).then(link => {
                 console.log("Link provided", link)
                 functions.queueAdd({ Player, link, msg }).then((que) => {

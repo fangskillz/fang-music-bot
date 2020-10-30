@@ -2,6 +2,7 @@
 const lavaLink = require('discord.js-lavalink');
 const snek     = require('snekfetch');
 const chalk    = require('chalk');
+const fetch    = require('axios')
 
 // YouTube Modules for searching //
 const ytSearch = require('youtube-node');
@@ -49,18 +50,24 @@ funcs.summon = (msg) => {
 
 funcs.fetchLink = (search) => {
     return new Promise((resolve, reject) => {
-        let ytMatch = search.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/);
-        console.log("Youtube link", ytMatch, "Text provided", search)
-        if (ytMatch && ytMatch[2]) {
-            YouTube.getById(ytMatch[2], (err, result) => {
-                if (err) { return console.error(err); }
-
-                if (!result) return reject({ error: true, message: `no_tracks` });
-                resolve({ result: result.items[0], service: 'youtube' });
-            });
-        } else {
-            reject({ error: true, message: `not_supported` });
-        }
+        // console.log("Searching by text", search('skrillex ty dollar sign tempations'))
+        // let ytMatch = search.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/);
+        fetch.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&key=${config.api.youtube}`, {
+            params: {
+                q: search.split(' ').join('+')
+            }
+        }).then(res => {
+            if (res.data.items[0].id.videoId) {
+                YouTube.getById(res.data.items[0].id.videoId, (err, result) => {
+                    if (err) { return console.error(err); }
+    
+                    if (!result) return reject({ error: true, message: `no_tracks` });
+                    resolve({ result: result.items[0], service: 'youtube' });
+                });
+            } else {
+                reject({ error: true, message: `not_supported` });
+            }
+        })
     });
 };
 
